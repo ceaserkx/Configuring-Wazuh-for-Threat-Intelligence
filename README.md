@@ -6,8 +6,9 @@ of endpoints after generating attack traffic with various red team tools.
 ## Contents
 - [Scope](#scope)
 - [Architecture](#architecture)
-- [Componenets](#components)
+- [Components](#components)
 - [Procedure](#procedure)
+- [Conclusion](#conclusion)
 
 ## Scope
 In this project, I configured a controlled environment with five Ubuntu virtual machines on the Linode cloud platform, with one hosting the Wazuh console and four acting as vulnerable endpoints. The vulnerable machines had their firewalls set to allow all inbound traffic
@@ -23,7 +24,7 @@ SIEMs retrieve and aggregate traffic.
 ## Components 
 ### Infrastructure 
 - Linode Cloud Platform
-- Client Systems (Endpoints) - (5) Ubunutu, (1) Kali
+- Client Systems (Endpoints) - (5) Ubuntu, (1) Kali
 - Firewall - Linode Cloud Firewall
 ### Security Tools
 - SIEM - Wazuh
@@ -51,7 +52,7 @@ Procedure below is not granularly step-by-step. This is to get a quick snapshot 
 #### 2.a Deploy Wazuh Agents from Wazuh Console
 - Login to Wazuh Dashboard
 - Navigate to https://YOUR-WAZUH-DASHBOARD-IP/app/endpoints-summary#/agents-preview/
-- Follow installation guide, ensure following command is run on the respective ubunutu endpoint (if amd64 architectuure)
+- Follow installation guide, ensure following command is run on the respective ubuntu endpoint (if amd64 architecture)
   
 ```
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.1-1_amd64.deb && sudo WAZUH_MANAGER='(local-ip-of-the-endpoint)' dpkg -i ./wazuh-agent_4.9.1-1_amd64.deb
@@ -70,9 +71,9 @@ wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.
   ```
   sudo nmap -sV -O (ip-address of machine; local ip if kali installed w/ linode cluster; public ip if kali installed on VM or local machine)
   ```
-  - sV retrieves target's version for the respective port. i.e. Port 80, Apached httpd 2.4.57
+  - sV retrieves target's version for the respective port. i.e. Port 80, Apache httpd 2.4.57
   - O attempts to retrieve target OS
-- For the linode machines, SSH service should be open and running, so we can attempt a bruteforce. (Althought port 22 is a common and expected port to open, this is why proper port management is important).
+- For the linode machines, SSH service should be open and running, so we can attempt a bruteforce. (Although port 22 is a common and expected port to open, this is why proper port management is important).
 - Attempt an SSH bruteforce from a wordlist, run:
   ```
   hydra -l (username) -P /usr/share/wordlists/wfuzz/others/common_pass.txt ssh://(linode ip you are targeting)
@@ -106,4 +107,3 @@ curl -sSL https://raw.githubusercontent.com/3CORESec/testmynids.org/master/tmNID
 ### Conclusion
 
 Some steps may have been skipped to shorten the length of procedure section for simplicity. However, I hope this project was clear and concise for your review. Please feel free to contact me for feedback, suggestions, or comments.
-
