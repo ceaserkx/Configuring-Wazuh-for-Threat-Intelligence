@@ -97,7 +97,7 @@ curl -sSL https://raw.githubusercontent.com/3CORESec/testmynids.org/master/tmNID
 - Navigate to **hourglass icon** on the far left.
 - Analyzing the log event, we can see items such as _data.scrip_, which is where the particular attack originated. Wazuh will also mention related mitre techniques associated with the event with _rule.mitre.technique_.
   <a href="https://imgur.com/nXbLALM"><img src="https://i.imgur.com/nXbLALM.png" title="source: imgur.com" /></a>
-- Navigate to the particular target endpoint
+- Navigate to the particular target endpoint (blue hyperlink)
 - We can utilize the given dashboards to create a quick analysis of all of the attacks this particular endpoint has undergone. Furthermore, if we navigate to **MITRE ATT&CK** tab near the top, we have additional metrics on the overall attack patterns for this endpoint.
   <a href="https://imgur.com/tq2rzHo"><img src="https://i.imgur.com/tq2rzHo.png" title="source: imgur.com" /></a>
 <a href="https://imgur.com/S0KxEkY"><img src="https://i.imgur.com/S0KxEkY.png" title="source: imgur.com" /></a>
@@ -106,4 +106,4 @@ curl -sSL https://raw.githubusercontent.com/3CORESec/testmynids.org/master/tmNID
 
 ### Conclusion
 
-Some steps may have been skipped to shorten the length of procedure section for simplicity. However, I hope this project was clear and concise for your review. Please feel free to contact me for feedback, suggestions, or comments.
+Some steps may have been skipped to shorten the length of procedure section for simplicity. However, I hope this project was clear and concise for your review. Please feel free to contact me for feedback, suggestions, or comments. For other projects, you can go [here](https://github.com/ceaserkx/Project-List-2024). 
